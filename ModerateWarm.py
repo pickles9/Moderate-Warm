@@ -18,6 +18,7 @@ player.goto(0,-60)
 
 #configures score printer
 scoreBot = trtl.Turtle()
+scoreBot.speed(0)
 scoreBot.ht()
 scoreBot.pu()
 scoreBot.color("white")
@@ -102,13 +103,24 @@ def end_game():
     wn.onkey(None,"Right")
     wn.onkey(None,"Down")
     wn.onkey(None,"Left")
+
+    scoreBot.clear()
+    scoreBot.goto(0,50)
+    scoreBot.write("Game over", font=font, align="center")
+
     player.ht()
     player.goto(500, 500)
+
+    scoreBot.goto(0,-50)
+    scoreBot.write("You survived for " + str(score) + " turns", font=font, align="center")
+    
     for enemy in enemies:
         enemy.ht()
         enemy.goto(500, 550)
+    
+    
 
-print(0/0 add game over screen
+#print(0/0 add game over screen
 def update_score():
     global score
     if gameactive:
